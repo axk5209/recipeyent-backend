@@ -12,20 +12,67 @@ usersRouter.post('/', async (request, response) => {
 
 	const saltRounds = 10
 	const passwordHash = await bcrypt.hash(body.password, saltRounds)
-
+	//tags, averageRating, favoritedRecipes, queuedRecipes values set to default (user entries ignored)
 	const user = new User({
 		username: body.username,
-		name: body.name,
+		firstName: body.firstName,
+		lastName: body.lastName,
 		email: body.email,
 		passwordHash,
-		tags: body.tags,
-		averageRating: body.averageRating
+		averageRating: null
 	})
 
 
 	const savedUser = await user.save()
 
 	response.json(savedUser)
+})
+
+usersRouter.put('/:id', async (request, response) => {
+	
+	const body = request.body
+	const saltRounds = 10
+	let changedUserInfo = {} //Will contain key-value pairs based on data available in body
+	
+	//Updating password if body contains password
+	if (body.password)
+	{
+		const passwordHash = await bcrypt.hash(body.password, saltRounds)
+		changedUserInfo.passwordHash = passwordHash
+	}
+	if (body.firstName)
+	{
+		changedUserInfo.firstName = body.firstName
+	}
+	if (body.lastName)
+	{
+		changedUserInfo.lastName = body.lastName
+	}
+	if (body.email)
+	{
+		changedUserInfo.email = body.email
+	}
+	if (body.tags)
+	{
+		changedUserInfo.tags = body.tags
+	}
+	if (body.averageRating)
+	{
+		changedUserInfo.averageRating = body.averageRating
+	}
+	if (body.favoritedRecipes)
+	{
+		changedUserInfo.favoritedRecipes = body.favoritedRecipes
+	}
+	if (body.queuedRecipes)
+	{
+		changedUserInfo.queuedRecipes = body.queuedRecipes
+	}
+
+
+	User.findByIdAndUpdate()
+	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo, { new: true })
+	response.json(updatedUser)
 })
 
 module.exports = usersRouter
