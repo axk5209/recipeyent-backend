@@ -6,8 +6,10 @@ const userSchema = new mongoose.Schema({
 	name: String,
 	passwordHash: String,
 	email: String,
-	averageRating: String,
-	tags: Array
+	averageRating: Number,
+	tags: Array,
+	favoritedRecipes: Array,
+	queuedRecipes: Array
 })
 
 userSchema.set('toJSON', {
