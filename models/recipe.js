@@ -1,18 +1,22 @@
 const mongoose = require('mongoose')
 
-const blogSchema = mongoose.Schema({
+const recipeSchema = mongoose.Schema({
 	title: String,
-	author: String,
-	url: String,
-	likes: Number,
-	user: {
+	ingredients: Array,
+	procedure: String,
+	tags: Array,
+	rating: Number,
+	preparationTime: Number,
+	cookTime: Number,
+	totalTime: Number,
+	author: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User' //Type is ObjectId that references note-style documents (ref name doesn't matter)
 	},
-	comments: Array,
+	reviews: Array
 })
 
-blogSchema.set('toJSON', {
+recipeSchema.set('toJSON', {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString()
 		delete returnedObject._id
@@ -21,4 +25,4 @@ blogSchema.set('toJSON', {
 	}
 })
 
-module.exports = mongoose.model('Blog', blogSchema)
+module.exports = mongoose.model('Recipe', recipeSchema)

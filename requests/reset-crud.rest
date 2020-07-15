@@ -1,1 +1,9 @@
-POST http://localhost:3003/api/reset HTTP/1.1  
+
+### RESET EVERYTHING
+POST http://localhost:3003/api/reset/all HTTP/1.1 
+
+### RESET USERS
+POST http://localhost:3003/api/reset/users HTTP/1.1  
+
+### RESET RECIPES
+POST http://localhost:3003/api/reset/recipes HTTP/1.1  

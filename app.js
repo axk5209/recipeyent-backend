@@ -5,7 +5,7 @@ const app = express()
 const cors = require('cors')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
-
+const recipesRouter = require("./controllers/recipes")
 if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
 	const resetRouter = require('./controllers/reset')
 	app.use('/api/reset', resetRouter)
@@ -32,6 +32,7 @@ app.use(middleware.tokenExtractor)
 
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/recipes', recipesRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

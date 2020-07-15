@@ -9,8 +9,9 @@ const userSchema = new mongoose.Schema({
 	email: String,
 	averageRating: Number,
 	tags: Array,
-	favoritedRecipes: Array,
-	queuedRecipes: Array
+	createdRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
+	favoritedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
+	queuedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 })
 
 userSchema.set('toJSON', {
