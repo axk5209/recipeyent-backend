@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 
 recipesRouter.get('/', async (request, response) => {
-	const recipes = await Recipe.find({}).populate('user', { firstName: 1, lastName: 1 })
+	const recipes = await Recipe.find({}).populate('author', { firstName: 1, lastName: 1 })
 	response.json(recipes.map(b => b.toJSON()))
 
 })
