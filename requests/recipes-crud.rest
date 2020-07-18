@@ -7,12 +7,11 @@ GET  http://localhost:3003/api/recipes HTTP/1.1
 ### MAKE A RECIPE BY USER1
 POST http://localhost:3003/api/recipes HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
-
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxMzc4NDUzMTI4MDc3NDQ0ODAwZTBiIiwiaWF0IjoxNTk1MTExNDk5fQ.kvodJANsuXvpKE1HICrh0CFNAnjgoqNFQdcy9A4LZTE
 {
     "title": "title1",
 	"ingredients": ["tomato", "coriander", "syrup"],
-	"procedure": "procedure1",
+	"procedure": ["step1", "step2", "step3"],
 	"preparationTime": 34,
 	"cookTime": 54,
 	"totalTime": 88,
@@ -24,12 +23,12 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 ### MAKE ANOTHER RECIPE BY USER1
 POST http://localhost:3003/api/recipes HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk0NzA2ODA0fQ.tPRMhcYqy0-IZofEtkGgj6nQrnyZWKfrDo10Cnvv0jk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxMjFjYjY2OTMyOTg1N2MxYzMwZTc5IiwiaWF0IjoxNTk1MDIyNTYxfQ.__LSefUk-meC1W-43D74KmqIGu-1UgXwGdolWFq0shk
 
 {
     "title": "title2",
 	"ingredients": ["oil", "red chilis", "ketchup", "batter"],
-	"procedure": "procedure1",
+	"procedure": ["step1", "step2", "step3"],
 	"preparationTime": 4,
 	"cookTime": 14,
 	"totalTime": 18,
@@ -42,12 +41,12 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 ### MAKE A RECIPE BY USER2
 POST http://localhost:3003/api/recipes HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMiIsImlkIjoiNWYwY2I1ZDYzZTUyN2Q5YWQzZDJkZWQwIiwiaWF0IjoxNTk1MDA3ODUyfQ.XEXgPXLUkd4m7A2l92e_K5pwaA6JsP9eIey-84YR2GA
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMiIsImlkIjoiNWYxMjFjYjk2OTMyOTg1N2MxYzMwZTdhIiwiaWF0IjoxNTk1MDIyNTk2fQ.kMIWkJ78qx5Fn5UCjvRMveoMJ2SR8hjSvajf-KtejBY
 
 {
 	"title": "title2",
 	"ingredients": ["sugar", "salt", "maple", "apple", "banana"],
-	"procedure": "procedure1",
+	"procedure": ["step1", "step2", "step3"],
 	"preparationTime": 20,
 	"cookTime": 15,
 	"totalTime": 35,
@@ -64,7 +63,7 @@ Content-Type: application/json
 {
 	"title": "title2",
 	"ingredients": ["sugar", "salt", "maple", "apple", "banana"],
-	"procedure": "procedure1",
+	"procedure": ["step1", "step2", "step3"],
 	"preparationTime": 10,
 	"cookTime": 5,
 	"totalTime": 15,
@@ -81,7 +80,7 @@ DELETE http://localhost:3003/api/recipes/5f0d503ae5189a84fae1aaf8 HTTP/1.1
 
 ### DELETE A SECOND USER1 RECIPE WITH CORRECT TOKEN
 DELETE http://localhost:3003/api/recipes/5f11e3125b87b94b61293d57 HTTP/1.1  
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxMjFjYjY2OTMyOTg1N2MxYzMwZTc5IiwiaWF0IjoxNTk1MDIyNTYxfQ.__LSefUk-meC1W-43D74KmqIGu-1UgXwGdolWFq0shk
 
 
 ### ADD A REVIEW AND TAGS AND RATING TO USER1's FIRST BLOG WITHOUT TOKEN
@@ -97,9 +96,9 @@ Content-Type: application/json
 
 
 ### ADD A REVIEW AND TAGS AND RATING TO USER1's FIRST BLOG WITH SOME CORRECT TOKEN
-PUT http://localhost:3003/api/recipes/5f11e3095b87b94b61293d56 HTTP/1.1  
+PUT http://localhost:3003/api/recipes/5f121d1669329857c1c30e7b HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxMjFjYjY2OTMyOTg1N2MxYzMwZTc5IiwiaWF0IjoxNTk1MDIyNTYxfQ.__LSefUk-meC1W-43D74KmqIGu-1UgXwGdolWFq0shk
 
 {
     "reviews": ["This is an amazing recipe (very sweet)", "First RECIPE FOR THE WIN"],
