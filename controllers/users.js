@@ -23,6 +23,7 @@ usersRouter.get('/', async (request, response) => {
 		cookTime: 1,  
 		totalTime: 1, 
 		rating: 1, 
+		author: 1
 	}).populate('queuedRecipes', {
 		ingredients: 1, 
 		tags: 1, 
@@ -33,6 +34,7 @@ usersRouter.get('/', async (request, response) => {
 		cookTime: 1,  
 		totalTime: 1, 
 		rating: 1, 
+		author: 1
 	})
 	response.json(users.map(u => u.toJSON())) 
 })
@@ -98,10 +100,12 @@ usersRouter.put('/:id', async (request, response) => {
 	{
 		changedUserInfo.queuedRecipes = body.queuedRecipes
 	}
+	if (body.followedUsers)
+	{
+		changedUserInfo.followedUsers = body.followedUsers
+	}
 
-
-	User.findByIdAndUpdate()
-	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo, { new: true })
+	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo)
 	response.json(updatedUser)
 })
 

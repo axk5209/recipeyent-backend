@@ -7,7 +7,7 @@ GET  http://localhost:3003/api/recipes HTTP/1.1
 ### MAKE A RECIPE BY USER1
 POST http://localhost:3003/api/recipes HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk0NzA2ODA0fQ.tPRMhcYqy0-IZofEtkGgj6nQrnyZWKfrDo10Cnvv0jk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
 
 {
     "title": "title1",
@@ -42,7 +42,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 ### MAKE A RECIPE BY USER2
 POST http://localhost:3003/api/recipes HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMiIsImlkIjoiNWYwY2I1ZDYzZTUyN2Q5YWQzZDJkZWQwIiwiaWF0IjoxNTk0NzA4MDc2fQ.6t4q2R3H8dVo82CiZYLvvl2IOlEkLNtcFg-PyRb3jTs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMiIsImlkIjoiNWYwY2I1ZDYzZTUyN2Q5YWQzZDJkZWQwIiwiaWF0IjoxNTk1MDA3ODUyfQ.XEXgPXLUkd4m7A2l92e_K5pwaA6JsP9eIey-84YR2GA
 
 {
 	"title": "title2",
@@ -80,12 +80,12 @@ DELETE http://localhost:3003/api/recipes/5f0d503ae5189a84fae1aaf8 HTTP/1.1
 
 
 ### DELETE A SECOND USER1 RECIPE WITH CORRECT TOKEN
-DELETE http://localhost:3003/api/recipes/5f0d503ae5189a84fae1aaf8 HTTP/1.1  
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk0NzA2ODA0fQ.tPRMhcYqy0-IZofEtkGgj6nQrnyZWKfrDo10Cnvv0jk
+DELETE http://localhost:3003/api/recipes/5f11e3125b87b94b61293d57 HTTP/1.1  
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
 
 
 ### ADD A REVIEW AND TAGS AND RATING TO USER1's FIRST BLOG WITHOUT TOKEN
-PUT http://localhost:3003/api/recipes/5f0d5027e5189a84fae1aaf7 HTTP/1.1  
+PUT http://localhost:3003/api/recipes/5f11e3095b87b94b61293d56 HTTP/1.1  
 Content-Type: application/json
 
 {
@@ -97,14 +97,15 @@ Content-Type: application/json
 
 
 ### ADD A REVIEW AND TAGS AND RATING TO USER1's FIRST BLOG WITH SOME CORRECT TOKEN
-PUT http://localhost:3003/api/recipes/5f0d5027e5189a84fae1aaf7 HTTP/1.1  
+PUT http://localhost:3003/api/recipes/5f11e3095b87b94b61293d56 HTTP/1.1  
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk0NzA2ODA0fQ.tPRMhcYqy0-IZofEtkGgj6nQrnyZWKfrDo10Cnvv0jk
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYwY2I1ZDUzZTUyN2Q5YWQzZDJkZWNmIiwiaWF0IjoxNTk1MDA3NzM3fQ.lcN3JlW8YvBkoIkkOOaqZAGNy80mo7VuKHpluwX9aLM
 
 {
     "reviews": ["This is an amazing recipe (very sweet)", "First RECIPE FOR THE WIN"],
 	"tags": [{"title": "chocolate", "votes": 4}, {"title": "sugar", "votes": 8}, {"title": "sugar", "votes": 20}],
-	"rating": 3.75
+	"rating": 3.75,
+	"ratingCount": 15
 }
 
 

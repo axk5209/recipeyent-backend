@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
 	createdRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	favoritedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	queuedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
+	followedUsers: Array
 })
 
 userSchema.set('toJSON', {

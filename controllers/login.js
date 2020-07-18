@@ -26,6 +26,7 @@ loginRouter.post('/', async (request, response) => {
 		cookTime: 1,  
 		totalTime: 1, 
 		rating: 1, 
+		author: 1
 	}).populate('queuedRecipes', {
 		ingredients: 1, 
 		tags: 1, 
@@ -36,6 +37,7 @@ loginRouter.post('/', async (request, response) => {
 		cookTime: 1,  
 		totalTime: 1, 
 		rating: 1, 
+		author: 1
 	})   //checks if username exists
 	const passwordCorrect = user === null
 		? false

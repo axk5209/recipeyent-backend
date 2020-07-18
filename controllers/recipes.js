@@ -30,9 +30,9 @@ recipesRouter.post('/', async (request, response) => {
 		cookTime: request.body.cookTime,
 		totalTime: request.body.totalTime,
 		author: user._id,
-
 		tags: request.body.tags ? request.body.tags : [],
 		rating: null,
+		ratingCount: 0
 	})
 
 	const result = await newRecipe.save()
@@ -85,6 +85,9 @@ recipesRouter.put('/:id', async (request, response) => {
 	}
 	if (request.body.reviews) {
 		newRecipes.reviews = request.body.reviews
+	}
+	if (request.body.ratingCount) {
+		newRecipes.ratingCount = request.body.ratingCount
 	}
 	const updatedNote = await Recipe.findByIdAndUpdate(request.params.id, newRecipes)
 	response.status(201).json(updatedNote)

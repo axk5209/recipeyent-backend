@@ -6,6 +6,7 @@ const recipeSchema = mongoose.Schema({
 	procedure: String,
 	tags: Array,
 	rating: Number,
+	ratingCount: Number,
 	preparationTime: Number,
 	cookTime: Number,
 	totalTime: Number,
