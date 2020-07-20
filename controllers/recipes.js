@@ -77,16 +77,16 @@ recipesRouter.put('/:id', async (request, response) => {
 	}
 	//Can only modify tags, rating, and reviews
 	let newRecipes = {}
-	if (request.body.tags) {
+	if (Object.prototype.hasOwnProperty.call(request.body, "tags")) {
 		newRecipes.tags = request.body.tags
 	}
-	if (request.body.rating) {
+	if (Object.prototype.hasOwnProperty.call(request.body, "rating")) {
 		newRecipes.rating = request.body.rating
 	}
-	if (request.body.reviews) {
+	if (Object.prototype.hasOwnProperty.call(request.body, "reviews")) {
 		newRecipes.reviews = request.body.reviews
 	}
-	if (request.body.ratingCount) {
+	if (Object.prototype.hasOwnProperty.call(request.body, "ratingCount")) {
 		newRecipes.ratingCount = request.body.ratingCount
 	}
 	const updatedNote = await Recipe.findByIdAndUpdate(request.params.id, newRecipes)

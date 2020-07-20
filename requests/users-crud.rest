@@ -16,6 +16,7 @@ Content-Type: application/json
 	"email": "user1@gmail.com",
 	"tags": [],
 	"averageRating": null,
+	"followerCount": 0,
 	"favoritedRecipes": [],
 	"queuedRecipes": []
 }
@@ -31,13 +32,22 @@ Content-Type: application/json
 	"password": "password2",
 	"email": "user2@gmail.com",
 	"tags": ["fun"],
-	"averageRating": 2,
+	"followerCount": 3,
 	"favoritedRecipes": [],
 	"queuedRecipes": []
 }
 
+### RESET USER 1 FOLLOWERS AND FOLLOWERCOUNT - REPLACE ID WITH USER ONE ID
+PUT http://localhost:3003/api/users/5f151b64284982095efac126 HTTP/1.1  
+Content-Type: application/json
+
+{
+	"followerCount": 0,
+	"followedUsers": []
+}
+
 ### MODIFY SECOND USER INFO (not password) - REPLACE ID WITH USER TWO ID
-PUT http://localhost:3003/api/users/5f0ca4843e527d9ad3d2dec1 HTTP/1.1  
+PUT http://localhost:3003/api/users/5f151b68284982095efac127 HTTP/1.1  
 Content-Type: application/json
 
 {
@@ -48,12 +58,10 @@ Content-Type: application/json
 	"email": "user2changed@gmail.com",
 	"tags": ["fun", "changed"],
 	"averageRating": 5,
-	"favoritedRecipes": ["changed"],
-	"queuedRecipes": ["changed"]
+	"followerCount": 16
 }
-
 ### MODIFY SECOND USER PASSWORD - REPLACE ID WITH USER TWO ID
-PUT http://localhost:3003/api/users/5f0ca4843e527d9ad3d2dec1 HTTP/1.1  
+PUT http://localhost:3003/api/users/5f151b68284982095efac127 HTTP/1.1  
 Content-Type: application/json
 
 {

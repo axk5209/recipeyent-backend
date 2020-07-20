@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
 	passwordHash: String,
 	email: String,
 	averageRating: Number,
-	tags: Array,
+	followerCount: Number,
 	createdRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	favoritedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	queuedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],

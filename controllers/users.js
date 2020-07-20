@@ -51,7 +51,8 @@ usersRouter.post('/', async (request, response) => {
 		lastName: body.lastName,
 		email: body.email,
 		passwordHash,
-		averageRating: null
+		averageRating: null,
+		followerCount: 0
 	})
 
 
@@ -67,42 +68,42 @@ usersRouter.put('/:id', async (request, response) => {
 	let changedUserInfo = {} //Will contain key-value pairs based on data available in body
 	
 	//Updating password if body contains password
-	if (body.password)
+	if (Object.prototype.hasOwnProperty.call(body, "password"))
 	{
 		const passwordHash = await bcrypt.hash(body.password, saltRounds)
 		changedUserInfo.passwordHash = passwordHash
 	}
-	if (body.firstName)
+	if (Object.prototype.hasOwnProperty.call(body, "firstName"))
 	{
 		changedUserInfo.firstName = body.firstName
 	}
-	if (body.lastName)
+	if (Object.prototype.hasOwnProperty.call(body, "lastName"))
 	{
 		changedUserInfo.lastName = body.lastName
 	}
-	if (body.email)
+	if (Object.prototype.hasOwnProperty.call(body, "email"))
 	{
 		changedUserInfo.email = body.email
 	}
-	if (body.tags)
-	{
-		changedUserInfo.tags = body.tags
-	}
-	if (body.averageRating)
+	if (Object.prototype.hasOwnProperty.call(body, "averageRating"))
 	{
 		changedUserInfo.averageRating = body.averageRating
 	}
-	if (body.favoritedRecipes)
+	if (Object.prototype.hasOwnProperty.call(body, "favoritedRecipes"))
 	{
 		changedUserInfo.favoritedRecipes = body.favoritedRecipes
 	}
-	if (body.queuedRecipes)
+	if (Object.prototype.hasOwnProperty.call(body, "queuedRecipes"))
 	{
 		changedUserInfo.queuedRecipes = body.queuedRecipes
 	}
-	if (body.followedUsers)
+	if (Object.prototype.hasOwnProperty.call(body, "followedUsers"))
 	{
 		changedUserInfo.followedUsers = body.followedUsers
+	}
+	if (Object.prototype.hasOwnProperty.call(body, "followerCount"))
+	{
+		changedUserInfo.followerCount = body.followerCount
 	}
 
 	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo)
