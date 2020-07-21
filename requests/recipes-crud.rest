@@ -94,6 +94,16 @@ Content-Type: application/json
 	"rating": 3.75
 }
 
+### RESET RECIPE REVIEWS
+PUT http://localhost:3003/api/recipes/5f151cbe56345f09adcec1d0 HTTP/1.1  
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxNTFiNjQyODQ5ODIwOTVlZmFjMTI2IiwiaWF0IjoxNTk1MjE5MDg0fQ.evMP3RTrl4ILac7mPQgUr1-lXFm2FrT9FyqJhXQVop8
+
+{
+    "reviews": []
+}
+
+
 
 
 ### ADD A REVIEW AND TAGS AND RATING TO USER1's FIRST BLOG WITH SOME CORRECT TOKEN
@@ -102,7 +112,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lMSIsImlkIjoiNWYxNTFiNjQyODQ5ODIwOTVlZmFjMTI2IiwiaWF0IjoxNTk1MjE5MDg0fQ.evMP3RTrl4ILac7mPQgUr1-lXFm2FrT9FyqJhXQVop8
 
 {
-    "reviews": ["This is an amazing recipe (very sweet)", "First RECIPE FOR THE WIN"],
+    "reviews": [{"userId": "sampleuserId", "text": "This is an amazing recipe (very sweet)"}, {"userId": "sampleuserId", "text": "First RECIPE FOR THE WIN"}],
 	"tags": [{"title": "chocolate", "votes": 4}, {"title": "sugar", "votes": 8}, {"title": "sugar", "votes": 20}],
 	"rating": 3.75,
 	"ratingCount": 15
