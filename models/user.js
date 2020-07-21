@@ -7,12 +7,15 @@ const userSchema = new mongoose.Schema({
 	lastName: String,
 	passwordHash: String,
 	email: String,
-	averageRating: Number,
 	followerCount: Number,
 	createdRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	favoritedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
 	queuedRecipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
-	followedUsers: Array
+	followedUsers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+	reviewsGiven: mongoose.Mixed,
+	ratingsGiven: mongoose.Mixed,
+	tagsGiven: mongoose.Mixed
+
 })
 
 userSchema.set('toJSON', {

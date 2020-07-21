@@ -3,6 +3,7 @@ const usersRouter = require('express').Router()
 const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
+	//Anything which the public sees is populated, otherwise not populated
 	const users = await User.find({}).populate('createdRecipes', { 
 		ingredients: 1, 
 		tags: 1, 
@@ -13,29 +14,30 @@ usersRouter.get('/', async (request, response) => {
 		cookTime: 1,  
 		totalTime: 1, 
 		rating: 1, 
-	}).populate('favoritedRecipes', { 
-		ingredients: 1, 
-		tags: 1, 
-		reviews: 1,  
-		title: 1, 
-		procedure: 1, 
-		preparationTime: 1,  
-		cookTime: 1,  
-		totalTime: 1, 
-		rating: 1, 
-		author: 1
-	}).populate('queuedRecipes', {
-		ingredients: 1, 
-		tags: 1, 
-		reviews: 1,  
-		title: 1, 
-		procedure: 1, 
-		preparationTime: 1,  
-		cookTime: 1,  
-		totalTime: 1, 
-		rating: 1, 
-		author: 1
 	})
+	// .populate('favoritedRecipes', { 
+	// 	ingredients: 1, 
+	// 	tags: 1, 
+	// 	reviews: 1,  
+	// 	title: 1, 
+	// 	procedure: 1, 
+	// 	preparationTime: 1,  
+	// 	cookTime: 1,  
+	// 	totalTime: 1, 
+	// 	rating: 1, 
+	// 	author: 1
+	// }).populate('queuedRecipes', {
+	// 	ingredients: 1, 
+	// 	tags: 1, 
+	// 	reviews: 1,  
+	// 	title: 1, 
+	// 	procedure: 1, 
+	// 	preparationTime: 1,  
+	// 	cookTime: 1,  
+	// 	totalTime: 1, 
+	// 	rating: 1, 
+	// 	author: 1
+	// })
 	response.json(users.map(u => u.toJSON())) 
 })
 
@@ -104,6 +106,18 @@ usersRouter.put('/:id', async (request, response) => {
 	if (Object.prototype.hasOwnProperty.call(body, "followerCount"))
 	{
 		changedUserInfo.followerCount = body.followerCount
+	}
+	if (Object.prototype.hasOwnProperty.call(body, "reviewsGiven"))
+	{
+		changedUserInfo.reviewsGiven = body.reviewsGiven
+	}
+	if (Object.prototype.hasOwnProperty.call(body, "ratingsGiven"))
+	{
+		changedUserInfo.ratingsGiven = body.ratingsGiven
+	}
+	if (Object.prototype.hasOwnProperty.call(body, "tagsGiven"))
+	{
+		changedUserInfo.tagsGiven = body.tagsGiven
 	}
 
 	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo)
