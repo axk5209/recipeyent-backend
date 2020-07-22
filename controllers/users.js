@@ -54,7 +54,8 @@ usersRouter.post('/', async (request, response) => {
 		email: body.email,
 		passwordHash,
 		averageRating: null,
-		followerCount: 0
+		followerCount: 0,
+		pictureId: body.pictureId
 	})
 
 
@@ -123,5 +124,4 @@ usersRouter.put('/:id', async (request, response) => {
 	const updatedUser = await User.findByIdAndUpdate(request.params.id, changedUserInfo)
 	response.json(updatedUser)
 })
-
 module.exports = usersRouter

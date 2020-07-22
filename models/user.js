@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
 	followedUsers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
 	reviewsGiven: mongoose.Mixed,
 	ratingsGiven: mongoose.Mixed,
-	tagsGiven: mongoose.Mixed
+	tagsGiven: mongoose.Mixed,
+	pictureId: String
 
 })
 
