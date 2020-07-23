@@ -55,7 +55,10 @@ usersRouter.post('/', async (request, response) => {
 		passwordHash,
 		averageRating: null,
 		followerCount: 0,
-		pictureId: body.pictureId
+		pictureId: body.pictureId,
+		reviewsGiven: {},
+		ratingsGiven: {},
+		tagsGiven: {},
 	})
 
 

@@ -7,7 +7,6 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const recipesRouter = require("./controllers/recipes")
 const uploadsRouter = require("./controllers/uploads")
-
 if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
 	const resetRouter = require('./controllers/reset')
 	app.use('/api/reset', resetRouter)

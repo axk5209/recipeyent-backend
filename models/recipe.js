@@ -14,7 +14,8 @@ const recipeSchema = mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User' //Type is ObjectId that references note-style documents (ref name doesn't matter)
 	},
-	reviews: Array
+	reviews: Array,
+	pictureId: String
 })
 
 recipeSchema.set('toJSON', {

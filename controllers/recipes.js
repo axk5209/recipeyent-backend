@@ -32,7 +32,8 @@ recipesRouter.post('/', async (request, response) => {
 		author: user._id,
 		tags: request.body.tags ? request.body.tags : [],
 		rating: null,
-		ratingCount: 0
+		ratingCount: 0,
+		pictureId: request.body.pictureId,
 	})
 
 	const result = await newRecipe.save()
