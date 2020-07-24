@@ -35,5 +35,6 @@
   },
   "jest": {
     "testEnvironment": "node"
-  }
+  },
+  "homepage" : "https://polar-cliffs-45863.herokuapp.com"
 }
