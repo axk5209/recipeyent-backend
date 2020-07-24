@@ -28,12 +28,11 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 	})
 
 app.use(cors())
-app.use(express.static(path.resolve(__dirname, '..', 'build')))
+app.use(express.static('build'))
 app.use(express.json({ limit: '50mb' }))
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 app.use(express.urlencoded({ limit: '50mb', extended: true }))
-
 
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
