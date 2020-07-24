@@ -28,18 +28,13 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 	})
 
 app.use(cors())
-app.use(express.static('build'))
+app.use(express.static(path.resolve(__dirname, '..', 'build')))
 app.use(express.json({ limit: '50mb' }))
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 app.use(express.urlencoded({ limit: '50mb', extended: true }))
 
-app.get('/*', (req, res) => {
-	let url = path.join(__dirname, './build', 'index.html')
-	if (!url.startsWith('/app/')) // we're on local windows
-		url = url.substring(1)
-	res.sendFile(url)
-})
+
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/recipes', recipesRouter)
