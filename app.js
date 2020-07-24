@@ -3,6 +3,8 @@ const express = require('express')
 require('express-async-errors')
 const app = express()
 const cors = require('cors')
+const path = require('path')
+
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const recipesRouter = require("./controllers/recipes")
@@ -32,6 +34,12 @@ app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 app.use(express.urlencoded({ limit: '50mb', extended: true }))
 
+app.get('/*', (req, res) => {
+	let url = path.join(__dirname, '../client/build', 'index.html');
+	if (!url.startsWith('/app/')) // we're on local windows
+		url = url.substring(1)
+	res.sendFile(url)
+})
 app.use('/api/login', loginRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/recipes', recipesRouter)
@@ -39,5 +47,4 @@ app.use('/api/uploads', uploadsRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
-
 module.exports = app
