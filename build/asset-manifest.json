@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/static/js/main.006168e3.chunk.js",
-    "main.js.map": "/static/js/main.006168e3.chunk.js.map",
+    "main.js": "/static/js/main.ae42abc7.chunk.js",
+    "main.js.map": "/static/js/main.ae42abc7.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.29d026f8.js",
     "runtime-main.js.map": "/static/js/runtime-main.29d026f8.js.map",
     "static/js/2.2ece41b9.chunk.js": "/static/js/2.2ece41b9.chunk.js",
     "static/js/2.2ece41b9.chunk.js.map": "/static/js/2.2ece41b9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.94757a8ece6b8e0a445fc7fcac254acb.js": "/precache-manifest.94757a8ece6b8e0a445fc7fcac254acb.js",
+    "precache-manifest.bb464ba683b889d24ed56134764eb113.js": "/precache-manifest.bb464ba683b889d24ed56134764eb113.js",
     "service-worker.js": "/service-worker.js",
     "static/js/2.2ece41b9.chunk.js.LICENSE.txt": "/static/js/2.2ece41b9.chunk.js.LICENSE.txt",
     "static/media/chefHat.jpg": "/static/media/chefHat.582dde99.jpg"
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.29d026f8.js",
     "static/js/2.2ece41b9.chunk.js",
-    "static/js/main.006168e3.chunk.js"
+    "static/js/main.ae42abc7.chunk.js"
   ]
 }
