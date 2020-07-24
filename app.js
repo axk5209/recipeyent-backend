@@ -28,7 +28,8 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 	})
 
 app.use(cors())
-app.use(express.static('build'))
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '/build')))
 app.use(express.json({ limit: '50mb' }))
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
@@ -39,6 +40,11 @@ app.use('/api/users', usersRouter)
 app.use('/api/recipes', recipesRouter)
 app.use('/api/uploads', uploadsRouter)
 
+
+// Handles any requests that don't match the ones above
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname + '/build/index.html'))
+})
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 module.exports = app
