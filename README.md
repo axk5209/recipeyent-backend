@@ -1,6 +1,6 @@
 
 # Back-end of Recipeyent
-### *Recipeyent is a fun recipe sharing website and this is its back-end server repository. It is built with Node.js, Express.js, MongoDB, Jest, and Cloudinary API*
+### *This is the back-end of a fun recipe-sharing website. It is built with Node.js, Express.js, MongoDB, Jest, and Cloudinary API*
 
 ![Image of Recipe Endpoint](https://github.com/axk5209/recipeyent-backend/blob/master/recipeEndpoint.png)
 
