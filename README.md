@@ -9,4 +9,4 @@
 #### The controllers folder contains REST endpoints for users and recipes data.
 #### The requests folder contains manual requests to verify REST endpoints functionality.
 #### The tests folder contains automated Jest tests to verify REST endpoints functionality.
-#### The utils folder contains abstractions used in server code.
+#### The utils folder contains abstractions used throughout server code.
